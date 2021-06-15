@@ -1,0 +1,15 @@
+package com.bynder.lotteryapplication.error;
+
+public enum ErrorCode {
+    FAILED_REGISTRATION,
+    MISSING_USER_NAME,
+    MISSING_NAME,
+    MISSING_PASSWORD,
+    INVALID_USER,
+    MISSING_DATE,
+    INVALID_DATE,
+    FAILED_QUERY,
+    FAILED_BALLOT_SUBMISSION,
+    COULD_NOT_FIND_USER,
+    INTERNAL_SERVER_ERROR;
+}

@@ -1,0 +1,38 @@
+# docker-compose.yml
+version: '3'
+services:
+  app:
+    image: 'lottery-application:latest'
+    build:
+      context: ""
+    container_name: app
+    ports:
+      - 8080:8080
+    networks:
+      - mynet
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/lottery_application
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=PostgresAdmin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  db:
+    image: "postgres" # use latest official postgres version
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    env_file:
+      - database.env # configure postgres
+    networks:
+      - mynet
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+
+networks:
+  mynet:
+    driver: bridge
