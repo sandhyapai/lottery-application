@@ -1,6 +1,6 @@
 # **`Lottery Application`**
 
-As part of the assignment I have created a simple REST API with four endpoints whereby we can run a simple lottery service.
+As part of the assignment I have created a simple REST API with three endpoints whereby we can run a simple lottery service.
 
 Prerequisites:
 
@@ -25,5 +25,7 @@ chmod +x run.sh
 * **Security**: At the moment no security implemented. The passwords are stored as plain text. We can use may be oAuth token for example while submitting a ballot to authorise registered users.
 * **User Management:** We can use any user management service such as Okta to have a sophisticated user management.
 * **@Scheduled**: This is being used to handle the scheduled event and will not work well in case of multiple nodes and that is not being handled.
-* **Database**: Postgres is used as the database, but we can choose any other database such Amazon Els service which extensive support for read heavy applications. 
+* **Database**: Postgres is used as the database, but we can choose any other database such Amazon Els service which provides extensive support for read heavy applications. 
+* **Populating Database** If database is populated while postgres container starts we would have some data at hand to actually test the api via rest api testing tools.
 
+>A small postman collection with 3 sample requests is provided in `/postmanCollection` folder `
